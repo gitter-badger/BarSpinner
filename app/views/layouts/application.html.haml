@@ -1,0 +1,31 @@
+<!doctype html>
+/[if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en">
+/[if IE 7] <html class="no-js lt-ie9 lt-ie8" lang="en">
+/[if IE 8] <html class="no-js lt-ie9" lang="en">
+/ [if gt IE 8]><!
+%html.no-js{:lang => "en"}
+  / <![endif]
+  %head
+    %link{:href => "http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,600italic,700,700italic,300italic", :rel => "stylesheet", :type => "text/css"}/
+
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "yes", :name => "apple-mobile-web-app-capable"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "rails_strap_modernizer"
+    = favicon_link_tag '/favicon.ico'
+    = csrf_meta_tags
+
+    = yield(:head)
+
+
+  %body
+    = render 'shared/header'
+    #main
+      .container
+        
+        = yield
+
+    = javascript_include_tag "application"
+    = yield :scripts
+

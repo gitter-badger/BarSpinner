@@ -1,0 +1,24 @@
+%header
+  .container
+    .navbar
+      .navbar-inner
+        %a.brand{:href => root_path}
+          %span.logo_title
+            {Bar}
+            %strong Spinner
+          %span.logo_subtitle Ruby on Rails test task!
+        %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+          %span.nb_left.pull-left
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %span.nb_right.pull-right menu
+        .nav-collapse.collapse
+          %ul.nav.pull-right
+            - if user_signed_in?
+              %li.sign_out= link_to "Sign out", destroy_user_session_path, :method => 'delete' 
+            
+            
+
+      
+= yield(:post_header)

@@ -11,6 +11,8 @@ gem "twitter-bootstrap-rails", '2.2.8'
 gem "simple_form"
 gem 'haml'
 gem 'haml-rails'
+gem 'inherited_resources'
+
 
 
 group :assets do
