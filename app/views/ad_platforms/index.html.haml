@@ -1,0 +1,23 @@
+%h1 Listing ad_platforms
+
+%table
+  %tr
+    %th User
+    %th Name
+    %th Url
+    %th
+    %th
+    %th
+
+  - @ad_platforms.each do |ad_platform|
+    %tr
+      %td= ad_platform.user_id
+      %td= ad_platform.name
+      %td= ad_platform.url
+      %td= link_to 'Show', ad_platform
+      %td= link_to 'Edit', edit_ad_platform_path(ad_platform)
+      %td= link_to 'Destroy', ad_platform, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Ad platform', new_ad_platform_path

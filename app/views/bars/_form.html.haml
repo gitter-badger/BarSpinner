@@ -1,0 +1,11 @@
+= simple_form_for(@bar) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :message
+    = f.input :link_text
+    = f.input :link_url
+
+  .form-actions
+    = f.button :submit

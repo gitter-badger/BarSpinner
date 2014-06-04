@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @bar.user_id
+%p
+  %b Name:
+  = @bar.name
+%p
+  %b Token:
+  = @bar.token
+%p
+  %b Message:
+  = @bar.message
+%p
+  %b Link text:
+  = @bar.link_text
+%p
+  %b Link url:
+  = @bar.link_url
+
+= link_to 'Edit', edit_bar_path(@bar)
+\|
+= link_to 'Back', bars_path

@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @ad_platform.user_id
+%p
+  %b Name:
+  = @ad_platform.name
+%p
+  %b Url:
+  = @ad_platform.url
+
+= link_to 'Edit', edit_ad_platform_path(@ad_platform)
+\|
+= link_to 'Back', ad_platforms_path

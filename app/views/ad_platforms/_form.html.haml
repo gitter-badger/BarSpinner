@@ -1,0 +1,10 @@
+= simple_form_for(@ad_platform) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :user_id
+    = f.input :name
+    = f.input :url
+
+  .form-actions
+    = f.button :submit

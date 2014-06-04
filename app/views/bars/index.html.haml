@@ -1,0 +1,29 @@
+%h1 Listing bars
+
+%table
+  %tr
+    %th User
+    %th Name
+    %th Token
+    %th Message
+    %th Link text
+    %th Link url
+    %th
+    %th
+    %th
+
+  - @bars.each do |bar|
+    %tr
+      %td= bar.user_id
+      %td= bar.name
+      %td= bar.token
+      %td= bar.message
+      %td= bar.link_text
+      %td= bar.link_url
+      %td= link_to 'Show', bar
+      %td= link_to 'Edit', edit_bar_path(bar)
+      %td= link_to 'Destroy', bar, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Bar', new_bar_path

@@ -1,0 +1,2 @@
+module AdPlatformsHelper
+end
