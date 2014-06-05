@@ -1,0 +1,18 @@
+%li.span4
+  .thumbnail
+    = link_to '×', ad_platform, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'close'
+    .caption
+
+      .general-info
+        %h4= ad_platform.name
+        %p= ad_platform.url
+
+      .info-icons
+        %i.icon-time
+        = ad_platform.created_at.try(:strftime, '%d %B, %Y')
+        %i.icon-tags
+        = ad_platform.bars_count
+
+      .actions
+        = link_to 'Open', ad_platform_bars_path(ad_platform), :class => 'btn'
+        = link_to 'Edit', edit_ad_platform_path(ad_platform), :class => 'btn'

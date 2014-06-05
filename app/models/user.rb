@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
 
 
   has_many :bars, dependent: :destroy
+  has_many :ad_platforms, dependent: :destroy
+
 end

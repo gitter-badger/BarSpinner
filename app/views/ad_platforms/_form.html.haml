@@ -1,8 +1,7 @@
-= simple_form_for(@ad_platform) do |f|
+= simple_form_for @ad_platform, :html => {:class => 'form-horizontal'} do |f|
   = f.error_notification
 
   .form-inputs
-    = f.input :user_id
     = f.input :name
     = f.input :url
 

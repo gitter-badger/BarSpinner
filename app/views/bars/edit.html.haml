@@ -1,7 +1,11 @@
-%h1 Editing bar
-
-= render 'form'
-
-= link_to 'Show', @bar
-\|
-= link_to 'Back', bars_path
+%section
+  .hgroup
+    %h1 Edit Advertisement Bar
+    %h2 Edit bar
+    
+  .row
+    #leftcol.span8
+      
+      = render 'form'
+      
+    = render 'shared/sidebar'

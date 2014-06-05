@@ -1,15 +1,20 @@
-%section#blog
+%section
   .hgroup
-    %h1 Bars
-    %h2 Your BarSpinners
+    %h1 Advertisement Platforms
+    %h2 Your Advertisement Platforms
+    = link_to 'Create Advertisement Platform', new_ad_platform_path, :class => 'btn pull-right'
+    .clearfix
+
 
   .row
     #leftcol.span8
       
-      - if @posts.present?
-        = render @posts
+      - if @ad_platforms.present?
+        %ul.thumbnails
+          = render @ad_platforms
+
       - else 
-        %h2 No Bars Created
-        = link_to 'Create a new one', 'new_post_path', :class => 'btn'
+        %h4 You don't have any advertisement platforms yet
+        = link_to 'Create a new one', new_ad_platform_path, :class => 'btn'
       
     = render 'shared/sidebar'

@@ -1,7 +1,11 @@
-%h1 Editing ad_platform
-
-= render 'form'
-
-= link_to 'Show', @ad_platform
-\|
-= link_to 'Back', ad_platforms_path
+%section
+  .hgroup
+    %h1 Edit Advertisement Platform
+    %h2 Edit platform
+    
+  .row
+    #leftcol.span8
+      
+      = render 'form'
+      
+    = render 'shared/sidebar'

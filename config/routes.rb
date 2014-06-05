@@ -1,9 +1,11 @@
 BarSpinner::Application.routes.draw do
 
-  resources :ad_platforms
+  get "script/:id" => 'scripts#script'
 
+  resources :ad_platforms do 
+    resources :bars
+  end
 
-  resources :bars
 
   get "home/index"
 

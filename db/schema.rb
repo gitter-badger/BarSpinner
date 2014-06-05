@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140604225111) do
+ActiveRecord::Schema.define(:version => 20140605104710) do
 
   create_table "ad_platforms", :force => true do |t|
     t.integer  "user_id"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(:version => 20140604225111) do
     t.string   "url"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "token"
+    t.integer  "bars_count"
   end
 
   add_index "ad_platforms", ["user_id"], :name => "index_ad_platforms_on_user_id"
@@ -26,15 +28,15 @@ ActiveRecord::Schema.define(:version => 20140604225111) do
   create_table "bars", :force => true do |t|
     t.integer  "user_id"
     t.string   "name"
-    t.string   "token"
     t.string   "message"
     t.string   "link_text"
     t.string   "link_url"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "ad_platform_id"
   end
 
-  add_index "bars", ["token"], :name => "index_bars_on_token"
+  add_index "bars", ["ad_platform_id"], :name => "index_bars_on_ad_platform_id"
   add_index "bars", ["user_id"], :name => "index_bars_on_user_id"
 
   create_table "impressions", :force => true do |t|

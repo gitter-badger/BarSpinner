@@ -1,29 +1,37 @@
-%h1 Listing bars
+%section
+  .hgroup
+    %h1= @ad_platform.name
+    %h2 Listing advertisement bars
+    = link_to 'Create Advertisement Bar', new_ad_platform_bar_path(@ad_platform), :class => 'btn pull-right'
+    .clearfix
 
-%table
-  %tr
-    %th User
-    %th Name
-    %th Token
-    %th Message
-    %th Link text
-    %th Link url
-    %th
-    %th
-    %th
+  .row
+    #leftcol.span8
+      - if @bars.present? 
+        .well
+          %h4= "To add bars from ad platform '#{@ad_platform.name}' to your site add this code to any page of your site"
+          %p= "<script src='//#{request.host_with_port}/script/#{@ad_platform.token}.js'></script>"
+        %table.table.table-hover
+          %tr
+            %th Name
+            %th Message
+            %th Link text
+            %th
 
-  - @bars.each do |bar|
-    %tr
-      %td= bar.user_id
-      %td= bar.name
-      %td= bar.token
-      %td= bar.message
-      %td= bar.link_text
-      %td= bar.link_url
-      %td= link_to 'Show', bar
-      %td= link_to 'Edit', edit_bar_path(bar)
-      %td= link_to 'Destroy', bar, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          - @bars.each do |bar|
+            %tr
+              %td= bar.name
+              %td= bar.message
+              %td= bar.link_text
+              %td
+                = link_to 'Edit', edit_ad_platform_bar_path(@ad_platform, bar), :class => 'btn'
+                = link_to '×', ad_platform_bar_path(@ad_platform, bar), :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-danger'
 
-%br
 
-= link_to 'New Bar', new_bar_path
+      - else             
+        %h4 You don't have any advertisement bars yet
+        = link_to 'Create a new one', new_ad_platform_bar_path(@ad_platform), :class => 'btn'
+
+    = render 'shared/sidebar'
+
+
