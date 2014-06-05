@@ -1,3 +1,5 @@
+= javascript_include_tag script_preview_path({bar_id: @bar.id})
+
 = simple_form_for [@ad_platform, @bar], :html => { :class => 'form-horizontal' } do |f|
   = f.error_notification
 
@@ -7,11 +9,10 @@
     = f.input :link_text
     = f.input :link_url
     = f.simple_fields_for :setting do |ff|
-      = ff.input :bar_color
-      = ff.input :link_color
+      = ff.input :bar_color, as: :minicolors, input_html: { data: { minicolors: { theme: :bootstrap, position: :left }}}
+      = ff.input :link_color, as: :minicolors, input_html: { data: { minicolors: { theme: :bootstrap, position: :left }}}
+      = ff.input :text_color, as: :minicolors, input_html: { data: { minicolors: { theme: :bootstrap, position: :left }}}
       = ff.input :max_impressions_count
-      = ff.input :text_color
 
   .form-actions
     = f.button :submit
-

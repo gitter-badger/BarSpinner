@@ -8,12 +8,6 @@ class BarsController < InheritedResources::Base
     new!
   end
 
-  def edit
-    @bar = Bar.new
-    @bar.build_setting
-    new!
-  end
-
   def create
     create! { ad_platform_bars_url(@ad_platform) }
   end

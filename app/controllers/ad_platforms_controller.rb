@@ -1,5 +1,7 @@
 class AdPlatformsController < InheritedResources::Base
 
+  actions  :new, :create, :edit, :update, :destroy
+
   def create
     create! { root_url }
   end

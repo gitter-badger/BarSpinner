@@ -1,7 +1,6 @@
 class Bar < ActiveRecord::Base
   attr_accessible :link_text, :link_url, :message, :name, :setting_attributes
 
-  belongs_to :user
   belongs_to :ad_platform, counter_cache: true  
   has_many :clicks, dependent: :destroy
   has_many :visits, dependent: :destroy

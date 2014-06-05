@@ -16,6 +16,8 @@
             %th Name
             %th Message
             %th Link text
+            %th Visits count
+            %th Clicks count
             %th
 
           - @bars.each do |bar|
@@ -23,6 +25,8 @@
               %td= bar.name
               %td= bar.message
               %td= bar.link_text
+              %td= bar.visits_count
+              %td= bar.clicks_count              
               %td
                 = link_to 'Edit', edit_ad_platform_bar_path(@ad_platform, bar), :class => 'btn'
                 = link_to '×', ad_platform_bar_path(@ad_platform, bar), :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-danger'

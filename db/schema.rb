@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140605104710) do
+ActiveRecord::Schema.define(:version => 20140605125222) do
 
   create_table "ad_platforms", :force => true do |t|
     t.integer  "user_id"
@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(:version => 20140605104710) do
   add_index "ad_platforms", ["user_id"], :name => "index_ad_platforms_on_user_id"
 
   create_table "bars", :force => true do |t|
-    t.integer  "user_id"
     t.string   "name"
     t.string   "message"
     t.string   "link_text"
@@ -34,10 +33,11 @@ ActiveRecord::Schema.define(:version => 20140605104710) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.integer  "ad_platform_id"
+    t.integer  "visits_count"
+    t.integer  "clicks_count"
   end
 
   add_index "bars", ["ad_platform_id"], :name => "index_bars_on_ad_platform_id"
-  add_index "bars", ["user_id"], :name => "index_bars_on_user_id"
 
   create_table "impressions", :force => true do |t|
     t.integer  "bar_id"

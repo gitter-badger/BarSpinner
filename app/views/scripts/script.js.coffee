@@ -29,7 +29,6 @@ bindReady = (callback) ->
   else window.attachEvent "onload", ready  if window.attachEvent
 
 window.MessageBar = (options) ->
-  console.log document.readyState  unless typeof console is "undefined"
   getCookie = (name) ->
     matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") + "=([^;]*)"))
     (if matches then decodeURIComponent(matches[1]) else `undefined`)
@@ -54,13 +53,13 @@ window.MessageBar = (options) ->
     if direction is "up"
       bar = new Animator(
         transition: Animator.makeBounce(2)
-        duration: 2000
+        duration: 800
       )
       bar.addSubject new NumericalStyleSubject("message_bar", "top", 0, -38)
       bar.toggle()
       open_link = new Animator(
         transition: Animator.makeBounce(2)
-        duration: 2000
+        duration: 800
       )
       open_link.addSubject new NumericalStyleSubject("message_bar_open", "top", -96, -14)
       open_link.toggle()
@@ -68,13 +67,13 @@ window.MessageBar = (options) ->
       if direction is "down"
         bar = new Animator(
           transition: Animator.makeBounce(2)
-          duration: 2000
+          duration: 800
         )
         bar.addSubject new NumericalStyleSubject("message_bar", "top", -38, 0)
         bar.toggle()
         open_link = new Animator(
           transition: Animator.makeBounce(2)
-          duration: 2000
+          duration: 800
         )
         open_link.addSubject new NumericalStyleSubject("message_bar_open", "top", -14, -96)
         open_link.toggle()
@@ -96,7 +95,9 @@ window.MessageBar = (options) ->
     newDiv.style.zIndex = "5000"
     newDiv.style.backgroundColor = options.background
     newDiv.style.color = options.text_color
-    newContent = document.createTextNode(options.message)
+    newContent = document.createElement("span")
+    newContent.textContent = options.message
+    newContent.id = 'message_bar_message'
     newDiv.appendChild newContent
     inner_link = document.createElement(options.display_as)
     inner_link.id = "message_bar_link"
@@ -161,49 +162,15 @@ window.MessageBar = (options) ->
 bindReady ->
   window.MessageBar(
     message: "<%=  @bar.message %>"
-    background: "<%= @bar.setting.bar_color %>"
-    text_color: "<%= @bar.setting.text_color %>"
-    link_color: "<%= @bar.setting.link_color%>"
+    background: "<%= @bar.setting.try :bar_color %>"
+    text_color: "<%= @bar.setting.try :text_color %>"
+    link_color: "<%= @bar.setting.try :link_color%>"
     inner_link_text: "<%=  @bar.link_text %>"
-    inner_link_url: "<%=  @bar.link_url %>"
+    inner_link_url: "<%=  ['//', request.host_with_port, '/link/', @bar.id].join() %>"
     can_close: true
     display_as: 'a'
 
     style_string: "
-    #message_bar.texture {
-      background-image: url(/images/textures.png);
-      background-repeat: repeat-x;
-    }
-    #message_bar.texture.noise {
-      background-position: 0 0;
-    }
-    #message_bar.texture.hard_shine {
-      background-position: 0 -30px;
-    }
-    #message_bar.texture.gradient_top {
-      background-position: 0 -60px;
-    }
-    #message_bar.texture.gradient_bottom {
-      background-position: 0 -90px;
-    }
-    #message_bar.texture.carbon {
-      background-position: 0 -120px;
-    }
-    #message_bar.texture.diagonal {
-      background-position: 0 -180px;
-    }
-    #message_bar.texture.stitch {
-      background-position: 0 -240px;
-    }
-    #message_bar.texture.diamond {
-      background-position: 0 -270px;
-    }
-    #message_bar.texture.wave {
-      background-position: 0 -300px;
-    }
-    #message_bar.texture.brick {
-      background-position: 0 -330px;
-    }
     #message_bar {
       font-family: serif;
       background: #EB583C;

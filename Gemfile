@@ -12,6 +12,7 @@ gem "simple_form"
 gem 'haml'
 gem 'haml-rails'
 gem 'inherited_resources'
+gem 'jquery-minicolors-rails'
 
 
 
