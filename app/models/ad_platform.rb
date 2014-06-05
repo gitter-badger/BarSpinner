@@ -7,6 +7,7 @@ class AdPlatform < ActiveRecord::Base
   before_create :generate_token
 
   validates :name, :url, :user_id, presence: true
+  validates :url, url: true
 
   private
 

@@ -9,6 +9,7 @@ class Bar < ActiveRecord::Base
   accepts_nested_attributes_for :setting
 
   validates :link_text, :link_url, :message, :name, :ad_platform_id, presence: true
+  validates :link_url, url: true
 
   def trigger_click
     self.clicks.create!

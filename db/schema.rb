@@ -11,16 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140605125222) do
+ActiveRecord::Schema.define(:version => 20140605214904) do
 
   create_table "ad_platforms", :force => true do |t|
     t.integer  "user_id"
     t.string   "name"
     t.string   "url"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.string   "token"
-    t.integer  "bars_count"
+    t.integer  "bars_count", :default => 0
   end
 
   add_index "ad_platforms", ["user_id"], :name => "index_ad_platforms_on_user_id"
@@ -30,11 +30,11 @@ ActiveRecord::Schema.define(:version => 20140605125222) do
     t.string   "message"
     t.string   "link_text"
     t.string   "link_url"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.integer  "ad_platform_id"
-    t.integer  "visits_count"
-    t.integer  "clicks_count"
+    t.integer  "visits_count",   :default => 0
+    t.integer  "clicks_count",   :default => 0
   end
 
   add_index "bars", ["ad_platform_id"], :name => "index_bars_on_ad_platform_id"
@@ -49,12 +49,12 @@ ActiveRecord::Schema.define(:version => 20140605125222) do
 
   create_table "settings", :force => true do |t|
     t.integer  "bar_id"
-    t.string   "bar_color"
-    t.string   "text_color"
-    t.string   "link_color"
+    t.string   "bar_color",             :default => "#EB583C"
+    t.string   "text_color",            :default => "#000000"
+    t.string   "link_color",            :default => "#000000"
     t.integer  "max_impressions_count", :default => 100
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
   end
 
   add_index "settings", ["bar_id"], :name => "index_settings_on_bar_id"
