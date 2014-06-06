@@ -8,8 +8,8 @@ FactoryGirl.define do
     "Lorem Ipsum #{n}"
   end
 
-  sequence :ip do |n|
-    "192.168.93.12#{n[0]}"
+  sequence :url do |n|
+    "http://url#{n[0]}.com"
   end
 
   sequence :model_id do |n|
@@ -18,6 +18,14 @@ FactoryGirl.define do
 
   sequence :email do |n|
     "person_#{n}_@example.com"
+  end
+
+  sequence :message do |n|
+    "message_#{n}"
+  end
+
+  sequence :text do |n|
+    "text_#{n}"
   end
 
 end

@@ -35,19 +35,19 @@ group :development do
 end
 
 group :development, :test do
-  gem 'pry-rails', '0.3.1'
+  gem 'pry-rails'
   gem 'pry-stack_explorer'
   gem 'pry-debugger'
-  gem 'rspec-rails', '>= 2.12.2'
+  gem 'rspec-rails'
 end
 
 group :test do
-  gem 'factory_girl_rails', '>= 4.2.0'
+  gem 'factory_girl_rails'
   gem 'mocha', '0.13.2', :require => false
   gem 'simplecov', :require => false
   gem 'simplecov-rcov', :require => false
-  gem 'shoulda-matchers', '1.4.1'
-  gem 'database_cleaner', '0.9.1'
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
 end
 
 

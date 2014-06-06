@@ -5,7 +5,7 @@ server "162.243.28.237", :web, :app, :db, primary: true
 
 set :application, "barspinner"
 set :user, "deployer"
-set :password, "deployer.11"
+set :password, ""
 set :port, 22
 set :deploy_to, "/var/www/#{application}"
 set :deploy_via, :remote_cache

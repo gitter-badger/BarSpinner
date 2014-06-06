@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(:version => 20140606101022) do
     t.integer  "user_id"
     t.string   "name"
     t.string   "url"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
     t.string   "token"
-    t.integer  "bars_count"
+    t.integer  "bars_count",    :default => 0
     t.integer  "recent_bar_id"
   end
 
