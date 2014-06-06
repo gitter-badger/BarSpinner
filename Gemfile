@@ -49,3 +49,8 @@ group :test do
   gem 'shoulda-matchers', '1.4.1'
   gem 'database_cleaner', '0.9.1'
 end
+
+
+#deploy 
+gem 'rvm-capistrano'
+gem 'capistrano'

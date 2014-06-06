@@ -36,6 +36,12 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.0.4)
+    capistrano (2.15.5)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -81,6 +87,7 @@ GEM
     has_scope (0.6.0.rc)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
+    highline (1.6.20)
     hike (1.2.3)
     i18n (0.6.9)
     inherited_resources (1.5.0)
@@ -115,6 +122,13 @@ GEM
       metaclass (~> 0.0.1)
     multi_json (1.10.1)
     mysql2 (0.3.16)
+    net-scp (1.1.2)
+      net-ssh (>= 2.6.5)
+    net-sftp (2.1.2)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.7.0)
+    net-ssh-gateway (1.2.0)
+      net-ssh (>= 2.6.5)
     orm_adapter (0.5.0)
     polyglot (0.3.5)
     pry (0.9.12.6)
@@ -177,6 +191,8 @@ GEM
       rspec-mocks (~> 3.0.0)
       rspec-support (~> 3.0.0)
     rspec-support (3.0.0)
+    rvm-capistrano (1.5.1)
+      capistrano (~> 2.15.4)
     sass (3.3.8)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -233,6 +249,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
+  capistrano
   coffee-rails (~> 3.2.1)
   database_cleaner (= 0.9.1)
   devise
@@ -254,6 +271,7 @@ DEPENDENCIES
   quiet_assets (= 1.0.2)
   rails (= 3.2.18)
   rspec-rails (>= 2.12.2)
+  rvm-capistrano
   sass-rails (~> 3.2.3)
   shoulda-matchers (= 1.4.1)
   simple_form
