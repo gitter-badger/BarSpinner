@@ -7,21 +7,19 @@ class ScriptsController < ApplicationController
   def script
     @ad_platform = AdPlatform.find_by_token(params[:id])
     if @ad_platform 
-      @bar = @ad_platform.bars[0]
-      @bar.trigger_visit
+      @bar = @ad_platform.get_next_bar
+    else 
+      render nothing: true
     end
   end
 
   def preview
-    if params[:bar_id]
-      @bar = Bar.find(params[:bar_id])
-    else
-      @bar = Bar.new
-    end
+    @bar = params[:bar_id] ? Bar.find(params[:bar_id]) : Bar.new
     render :script
   end
 
   def link
+    @bar = Bar.find(params[:id])
     @bar.trigger_click
     redirect_to @bar.link_url
   end

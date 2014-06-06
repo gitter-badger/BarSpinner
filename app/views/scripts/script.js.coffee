@@ -95,10 +95,13 @@ window.MessageBar = (options) ->
     newDiv.style.zIndex = "5000"
     newDiv.style.backgroundColor = options.background
     newDiv.style.color = options.text_color
+
     newContent = document.createElement("span")
     newContent.textContent = options.message
     newContent.id = 'message_bar_message'
+
     newDiv.appendChild newContent
+
     inner_link = document.createElement(options.display_as)
     inner_link.id = "message_bar_link"
     inner_link.style.color = options.link_color
@@ -106,38 +109,50 @@ window.MessageBar = (options) ->
     inner_link_text = document.createTextNode(options.inner_link_text)
     inner_link.appendChild inner_link_text
     inner_link.href = options.inner_link_url 
+    inner_link.target = '_blank' 
+
     newDiv.appendChild inner_link
+
     botDiv = document.createElement("div")
     botDiv.id = "message_bar_shadow"
     topDiv = document.createElement("div")
     topDiv.id = "message_bar_top"
+
     newDiv.appendChild botDiv
+
     close_link = document.createElement("a")
     close_link.id = "message_bar_close"
     close_link.href = "javascript:void(0)"
+
     close_link.onclick = () ->
       MessageBar.closeBar()
     onclick = close_link.getAttribute("onclick")
     unless typeof (onclick) is "function"
       close_link.setAttribute "onclick", "MessageBar.closeBar();"
+
     open_link = document.createElement("a")
     open_link.id = "message_bar_open"
     open_link.href = "javascript:void(0)"
+
     open_link.onclick = () ->
       MessageBar.showBar()
     unless typeof (onclick) is "function"
       open_link.setAttribute "onclick", "MessageBar.showBar();"
     if options.can_close is "true"
       newDiv.appendChild close_link
+
     newDiv.appendChild open_link
     newDiv.appendChild close_link
+
     first_elem = document.body.firstChild
     document.body.insertBefore newDiv, first_elem
     document.body.insertBefore topDiv, newDiv
+
     head = document.getElementsByTagName("head")[0]
     style = document.createElement("style")
     rules = document.createTextNode(options.style_string)
     style.type = "text/css"
+
     if style.styleSheet
       style.styleSheet.cssText = rules.nodeValue
     else

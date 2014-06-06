@@ -1,3 +1,4 @@
+= raw "<script src='//localhost:3000/script/2550d192aaa7b45f6ec96c6b6feb3eb1962c41c6.js'></script>"
 %section
   .hgroup
     %h1= @ad_platform.name
@@ -10,7 +11,7 @@
       - if @bars.present? 
         .well
           %h4= "To add bars from ad platform '#{@ad_platform.name}' to your site add this code to any page of your site"
-          %p= "<script src='//#{request.host_with_port}/script/#{@ad_platform.token}.js'></script>"
+          = text_field_tag 'script', "<script src='//#{request.host_with_port}/script/#{@ad_platform.token}.js'></script>", :class => 'span7', :disabled => true
         %table.table.table-hover
           %tr
             %th Name

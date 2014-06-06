@@ -11,16 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140605214904) do
+ActiveRecord::Schema.define(:version => 20140606101022) do
 
   create_table "ad_platforms", :force => true do |t|
     t.integer  "user_id"
     t.string   "name"
     t.string   "url"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.string   "token"
-    t.integer  "bars_count", :default => 0
+    t.integer  "bars_count"
+    t.integer  "recent_bar_id"
   end
 
   add_index "ad_platforms", ["user_id"], :name => "index_ad_platforms_on_user_id"
