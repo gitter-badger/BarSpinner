@@ -16,4 +16,9 @@ class BarsController < InheritedResources::Base
     update! { ad_platform_bars_url(@ad_platform) }
   end
 
+  protected
+    def begin_of_association_chain
+      current_user
+    end
+
 end
