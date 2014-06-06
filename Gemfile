@@ -14,6 +14,7 @@ gem 'haml-rails'
 gem 'inherited_resources'
 gem 'jquery-minicolors-rails'
 gem "validate_url"
+gem 'coffee-rails', '~> 3.2.1'
 
 
 
@@ -21,7 +22,6 @@ group :assets do
   gem "less-rails", '2.4.2'
   gem 'less', '2.4.0'
   gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
   gem 'therubyracer', :platforms => :ruby
   gem 'uglifier', '>= 1.0.3'
 end
