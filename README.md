@@ -1,4 +1,0 @@
-BarSpinner
-==========
-
-test task
