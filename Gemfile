@@ -54,3 +54,4 @@ end
 #deploy 
 gem 'rvm-capistrano'
 gem 'capistrano'
+gem "net-ssh", "~> 2.7.0"
