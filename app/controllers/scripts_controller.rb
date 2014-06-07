@@ -8,6 +8,7 @@ class ScriptsController < ApplicationController
     @ad_platform = AdPlatform.find_by_token(params[:id])
     if @ad_platform 
       @bar = @ad_platform.get_next_bar
+      @bar.trigger_visit
     else 
       render nothing: true
     end
